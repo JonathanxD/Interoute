@@ -29,6 +29,9 @@ package com.github.jonathanxd.interoute.gen;
 
 import com.github.jonathanxd.interoute.annotation.RouteInfo;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Specification of {@link RouteInfo}
  */
@@ -42,27 +45,48 @@ public final class RouteSpecInfo<T> {
     /**
      * Annotation unifier type (value provided in {@link RouteInfo#value()}).
      */
-    private final Class<T> unifier;
+    private final Class<? extends AnnotationUnifier<T>> unifier;
 
     /**
      * Unification instance.
      */
     private final T instance;
 
-    public RouteSpecInfo(Class<?> annotationType, Class<T> unifier, T instance) {
+    public RouteSpecInfo(Class<?> annotationType, Class<? extends AnnotationUnifier<T>> unifier, T instance) {
         this.annotationType = annotationType;
         this.unifier = unifier;
         this.instance = instance;
     }
 
+    /**
+     * Gets the annotation type.
+     *
+     * @return Annotation type.
+     */
+    @Contract(pure = true)
+    @NotNull
     public Class<?> getAnnotationType() {
         return this.annotationType;
     }
 
-    public Class<T> getUnifier() {
+    /**
+     * Gets the annotation unifier.
+     *
+     * @return Annotation unifier.
+     */
+    @Contract(pure = true)
+    @NotNull
+    public Class<? extends AnnotationUnifier<T>> getUnifier() {
         return this.unifier;
     }
 
+    /**
+     * Gets the unified instance.
+     *
+     * @return unified instance.
+     */
+    @Contract(pure = true)
+    @NotNull
     public T getInstance() {
         return this.instance;
     }

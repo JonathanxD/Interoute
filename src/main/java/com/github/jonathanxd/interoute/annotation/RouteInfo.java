@@ -48,5 +48,5 @@ public @interface RouteInfo {
      *
      * @return Annotation unifier interface.
      */
-    Class<? extends AnnotationUnifier> value();
+    Class<? extends AnnotationUnifier<?>> value();
 }

@@ -29,24 +29,24 @@ package com.github.jonathanxd.interoute.gen;
 
 import java.lang.annotation.Annotation;
 
-public interface AnnotationUnifier {
+public interface AnnotationUnifier<T> {
     /**
-     * Unify annotation instance into {@link T}.
+     * Unify annotation instance.
+     *
      * @param annotation Annotation to unify.
-     * @param <T>        Unified type.
      * @return Unified annotation instance.
      */
-    <T> T unify(Annotation annotation);
+    T unify(Annotation annotation);
 
     /**
      * Returns the same input annotation as unification instance.
      */
-    final class Self implements AnnotationUnifier {
+    final class Self implements AnnotationUnifier<Annotation> {
 
         @SuppressWarnings("unchecked")
         @Override
-        public <T> T unify(Annotation annotation) {
-            return (T) annotation;
+        public Annotation unify(Annotation annotation) {
+            return annotation;
         }
     }
 }

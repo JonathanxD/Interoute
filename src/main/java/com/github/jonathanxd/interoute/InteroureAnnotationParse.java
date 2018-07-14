@@ -36,6 +36,7 @@ import com.github.jonathanxd.interoute.backend.InterouteBackend;
 import com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration;
 import com.github.jonathanxd.interoute.backend.InterouteBackendConfigurer;
 import com.github.jonathanxd.interoute.exception.RouterCreationException;
+import com.github.jonathanxd.interoute.gen.AnnotationUnifier;
 import com.github.jonathanxd.interoute.gen.RouteSpec;
 import com.github.jonathanxd.interoute.gen.RouteSpecInfo;
 import com.github.jonathanxd.interoute.gen.RouterSpec;
@@ -174,12 +175,13 @@ public class InteroureAnnotationParse {
      * @param routeInfo      Route info of spec annotation.
      * @return Spec info instance.
      */
+    @SuppressWarnings("unchecked")
     private static RouteSpecInfo<?> createSpecInfo(Class<? extends Annotation> annotationType,
                                                    Annotation annotation,
                                                    RouteInfo routeInfo) {
         return new RouteSpecInfo<>(
                 annotationType,
-                routeInfo.value(),
+                (Class<? extends AnnotationUnifier<Object>>) routeInfo.value(),
                 InstanceFactories.create(routeInfo.value()).unify(annotation)
         );
     }
