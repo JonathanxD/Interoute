@@ -25,32 +25,31 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.interoute.gen;
+package com.github.jonathanxd.interoute.util;
+
+import com.github.jonathanxd.interoute.gen.RouteSpecInfo;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.annotation.Annotation;
+import java.util.stream.Stream;
 
-public interface AnnotationUnifier<T> {
+public class RouteSpecInfoUtil {
     /**
-     * Unify annotation instance.
+     * Filter all route spec info instances which {@link RouteSpecInfo#getInstance() unified instance} is instance of {@code
+     * unificationType}.
      *
-     * @param annotation Annotation to unify.
-     * @return Unified annotation instance.
+     * @param stream          Stream to apply filter.
+     * @param unificationType Unification type instance.
+     * @param <T>             Unification type.
+     * @return Stream with filtered spec info elements.
      */
-    @NotNull
-    T unify(@NotNull Annotation annotation);
-
-    /**
-     * Returns the same input annotation as unification instance.
-     */
-    final class Self implements AnnotationUnifier<Annotation> {
-
-        @SuppressWarnings("unchecked")
-        @Override
-        @NotNull
-        public Annotation unify(@NotNull Annotation annotation) {
-            return annotation;
-        }
+    @SuppressWarnings("unchecked")
+    public static <T> Stream<? extends RouteSpecInfo<? extends T>> filterByUnificationType(
+            @NotNull Stream<RouteSpecInfo<?>> stream,
+            @NotNull Class<T> unificationType) {
+        return stream
+                .filter(it -> unificationType.isInstance(it.getInstance()))
+                .map(it -> (RouteSpecInfo<? extends T>) it);
     }
+
 }

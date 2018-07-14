@@ -40,19 +40,24 @@ public final class RouteSpecInfo<T> {
     /**
      * Annotation type.
      */
+    @NotNull
     private final Class<?> annotationType;
 
     /**
      * Annotation unifier type (value provided in {@link RouteInfo#value()}).
      */
+    @NotNull
     private final Class<? extends AnnotationUnifier<T>> unifier;
 
     /**
      * Unification instance.
      */
+    @NotNull
     private final T instance;
 
-    public RouteSpecInfo(Class<?> annotationType, Class<? extends AnnotationUnifier<T>> unifier, T instance) {
+    public RouteSpecInfo(@NotNull Class<?> annotationType,
+                         @NotNull Class<? extends AnnotationUnifier<T>> unifier,
+                         @NotNull T instance) {
         this.annotationType = annotationType;
         this.unifier = unifier;
         this.instance = instance;
