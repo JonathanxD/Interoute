@@ -1,0 +1,414 @@
+md5: 52d21695973388a7755d94587e7e2ff9
+
+version: Java 8 (52)
+access: ACC_PUBLIC, ACC_SYNTHETIC (4129)
+
+source: InternalRouter$Router.cai
+
+public class com.github.jonathanxd.interoute.backend.live.InternalRouter$Router extends java.lang.Object implements com.github.jonathanxd.interoute.test.SimpleInterouteDefaultBackend$InternalRouter, com.github.jonathanxd.interoute.route.Router {
+
+    !access: ACC_PRIVATE, ACC_FINAL (18)
+    private final com.github.jonathanxd.interoute.backend.InterouteBackend backend
+    !access: ACC_PRIVATE, ACC_FINAL (18)
+    private final com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration backendConfiguration
+
+    !access: ACC_PUBLIC (1)
+    !parameter[name: backend, access:  (0)]
+    !parameter[name: backendConfiguration, access:  (0)]
+    public void <init>(com.github.jonathanxd.interoute.backend.InterouteBackend, com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration) {
+      desc: (Lcom/github/jonathanxd/interoute/backend/InterouteBackend;Lcom/github/jonathanxd/interoute/backend/InterouteBackendConfiguration;)V 
+      maxStack: 2, maxLocals: 3 
+      Label_0:
+        aload 0
+        invokespecial java.lang.Object.<init>()void (ownerIsInterface: false)
+      Label_1:
+       LINE 7 -> Label_1
+        aload 0
+        aload 1
+        putfield com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.backend (type: com.github.jonathanxd.interoute.backend.InterouteBackend)
+      Label_2:
+       LINE 8 -> Label_2
+        aload 0
+        aload 2
+        putfield com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.backendConfiguration (type: com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration)
+        return
+      Label_3:
+      LocalVariables {
+        index: 2, name: backendConfiguration, start: Label_0, end: Label_3, type: com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration, signature: null
+        index: 1, name: backend, start: Label_0, end: Label_3, type: com.github.jonathanxd.interoute.backend.InterouteBackend, signature: null
+        index: 0, name: this, start: Label_0, end: Label_3, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: ACC_PUBLIC (1)
+    !signature: ()Ljava/util/Optional<Lcom/github/jonathanxd/interoute/backend/InterouteBackend;>;
+    public java.util.Optional getBackend() {
+      desc: ()Ljava/util/Optional; 
+      maxStack: 1, maxLocals: 1 
+      Label_0:
+       LINE 1 -> Label_0
+        aload 0
+        getfield com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.backend (type: com.github.jonathanxd.interoute.backend.InterouteBackend)
+        invokestatic java.util.Optional.of(java.lang.Object)java.util.Optional (ownerIsInterface: false)
+        areturn
+      Label_1:
+      LocalVariables {
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: ACC_PUBLIC (1)
+    !signature: ()Ljava/util/Optional<Lcom/github/jonathanxd/interoute/backend/InterouteBackendConfiguration;>;
+    public java.util.Optional getBackendConfiguration() {
+      desc: ()Ljava/util/Optional; 
+      maxStack: 1, maxLocals: 1 
+      Label_0:
+       LINE 2 -> Label_0
+        aload 0
+        getfield com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.backendConfiguration (type: com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration)
+        invokestatic java.util.Optional.of(java.lang.Object)java.util.Optional (ownerIsInterface: false)
+        areturn
+      Label_1:
+      LocalVariables {
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: ACC_PUBLIC (1)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    public com.github.jonathanxd.interoute.route.Route calc(int, int) {
+      desc: (II)Lcom/github/jonathanxd/interoute/route/Route; 
+      maxStack: 17, maxLocals: 3 
+      Label_0:
+       LINE 3 -> Label_0
+        new com.github.jonathanxd.interoute.route.SuppliedExecutorRoute
+        dup
+        new com.github.jonathanxd.interoute.route.MethodTypeSpecOrigin
+        dup
+        new com.github.jonathanxd.kores.common.MethodTypeSpec
+        dup
+        ldc Lcom/github/jonathanxd/interoute/route/Route;              // type: java.lang.Class
+        ldc "calc"              // type: java.lang.String
+        new com.github.jonathanxd.kores.base.TypeSpec
+        dup
+        ldc Lcom/github/jonathanxd/interoute/route/Route;              // type: java.lang.Class
+        iconst_2
+        anewarray java.lang.Object
+        dup
+        iconst_0
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        dup
+        iconst_1
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        invokestatic com.github.jonathanxd.iutils.collection.Collections3.listOf(java.lang.Object[])java.util.List (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.base.TypeSpec.<init>(java.lang.reflect.Type, java.util.List)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.common.MethodTypeSpec.<init>(java.lang.reflect.Type, java.lang.String, com.github.jonathanxd.kores.base.TypeSpec)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.interoute.route.MethodTypeSpecOrigin.<init>(com.github.jonathanxd.kores.common.MethodTypeSpec)void (ownerIsInterface: false)
+        new com.github.jonathanxd.interoute.backend.def.DefaultBackendDestination
+        dup
+        aload 0
+        invokevirtual com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.getBackendConfiguration()java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration
+        ldc "Math"              // type: java.lang.String
+        invokevirtual com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration.getInstance(java.lang.String)java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        new com.github.jonathanxd.kores.common.MethodTypeSpec
+        dup
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        ldc "plus"              // type: java.lang.String
+        new com.github.jonathanxd.kores.base.TypeSpec
+        dup
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        iconst_2
+        anewarray java.lang.Object
+        dup
+        iconst_0
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        dup
+        iconst_1
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        invokestatic com.github.jonathanxd.iutils.collection.Collections3.listOf(java.lang.Object[])java.util.List (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.base.TypeSpec.<init>(java.lang.reflect.Type, java.util.List)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.common.MethodTypeSpec.<init>(java.lang.reflect.Type, java.lang.String, com.github.jonathanxd.kores.base.TypeSpec)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.interoute.backend.def.DefaultBackendDestination.<init>(java.lang.Object, com.github.jonathanxd.kores.common.MethodTypeSpec)void (ownerIsInterface: false)
+        aload 0
+        iload 1
+        iload 2
+        invokedynamic get(com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, int, int)java.util.function.Supplier [
+          // Bootstrap method
+          java.lang.invoke.LambdaMetafactory.metafactory(java.lang.invoke.MethodHandles$Lookup, java.lang.String, java.lang.invoke.MethodType, java.lang.invoke.MethodType, java.lang.invoke.MethodHandle, java.lang.invoke.MethodType)java.lang.invoke.CallSite (tag: h_invokestatic, itf: false) [
+            // Arguments
+            ()Ljava/lang/Object;
+            com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.$completableFutureFactory-9223372036854775807(int, int)java.util.concurrent.CompletableFuture (tag: h_invokevirtual, itf: false)
+            ()Ljava/util/concurrent/CompletableFuture;
+          ]
+        ]
+        invokespecial com.github.jonathanxd.interoute.route.SuppliedExecutorRoute.<init>(com.github.jonathanxd.interoute.route.Origin, com.github.jonathanxd.interoute.route.Destination, java.util.function.Supplier)void (ownerIsInterface: false)
+        areturn
+      Label_1:
+      LocalVariables {
+        index: 2, name: param1, start: Label_0, end: Label_1, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_1, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: PACKAGE_PRIVATE, ACC_FINAL, ACC_SYNTHETIC (4112)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    final java.util.concurrent.CompletableFuture $completableFutureFactory-9223372036854775807(int, int) {
+      desc: (II)Ljava/util/concurrent/CompletableFuture; 
+      maxStack: 3, maxLocals: 3 
+      Label_0:
+        aload 0
+        iload 1
+        iload 2
+        invokedynamic get(com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, int, int)java.util.function.Supplier [
+          // Bootstrap method
+          java.lang.invoke.LambdaMetafactory.metafactory(java.lang.invoke.MethodHandles$Lookup, java.lang.String, java.lang.invoke.MethodType, java.lang.invoke.MethodType, java.lang.invoke.MethodHandle, java.lang.invoke.MethodType)java.lang.invoke.CallSite (tag: h_invokestatic, itf: false) [
+            // Arguments
+            ()Ljava/lang/Object;
+            com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.$resultHandler-9223372036854775808(int, int)com.github.jonathanxd.iutils.object.result.Result (tag: h_invokevirtual, itf: false)
+            ()Lcom/github/jonathanxd/iutils/object/result/Result;
+          ]
+        ]
+        invokestatic java.util.concurrent.CompletableFuture.supplyAsync(java.util.function.Supplier)java.util.concurrent.CompletableFuture (ownerIsInterface: false)
+        areturn
+      Label_1:
+      LocalVariables {
+        index: 2, name: param1, start: Label_0, end: Label_1, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_1, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: PACKAGE_PRIVATE, ACC_FINAL, ACC_SYNTHETIC (4112)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    final com.github.jonathanxd.iutils.object.result.Result $resultHandler-9223372036854775808(int, int) {
+      desc: (II)Lcom/github/jonathanxd/iutils/object/result/Result; 
+      maxStack: 5, maxLocals: 4 
+      Label_0:
+        new java.lang.Integer
+        dup
+        aload 0
+        invokevirtual com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.getBackendConfiguration()java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration
+        ldc "Math"              // type: java.lang.String
+        invokevirtual com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration.getInstance(java.lang.String)java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.test.SimpleInterouteDefaultBackend$MathPlus
+        iload 1
+        iload 2
+        invokevirtual com.github.jonathanxd.interoute.test.SimpleInterouteDefaultBackend$MathPlus.plus(int, int)int (ownerIsInterface: false)
+        invokespecial java.lang.Integer.<init>(int)void (ownerIsInterface: false)
+        checkcast java.lang.Object
+        invokestatic com.github.jonathanxd.iutils.object.result.Result.ok(java.lang.Object)com.github.jonathanxd.iutils.object.result.Result$Ok (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.iutils.object.result.Result
+        areturn
+      Label_1:
+       FRAME[type: F_SAME1, locals: 0, local: {}, stacks: 1, stack: {Reference[java.lang.Throwable]}]
+        astore 3
+        new com.github.jonathanxd.interoute.exception.RoutingException
+        dup
+        aload 3
+        invokespecial com.github.jonathanxd.interoute.exception.RoutingException.<init>(java.lang.Throwable)void (ownerIsInterface: false)
+        invokestatic com.github.jonathanxd.iutils.object.result.Result.error(java.lang.Object)com.github.jonathanxd.iutils.object.result.Result$Err (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.iutils.object.result.Result
+        areturn
+      Label_2:
+      TryCatchBlocks {
+        start: Label_0, end: Label_1, handler: Label_1, exception: java.lang.Throwable
+      }
+      LocalVariables {
+        index: 3, name: exception, start: Label_1, end: Label_2, type: java.lang.Throwable, signature: null
+        index: 2, name: param1, start: Label_0, end: Label_2, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_2, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_2, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: ACC_PUBLIC (1)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    public void calc2(int, int) {
+      desc: (II)V 
+      maxStack: 17, maxLocals: 3 
+      Label_0:
+       LINE 4 -> Label_0
+        new com.github.jonathanxd.interoute.route.SuppliedExecutorRoute
+        dup
+        new com.github.jonathanxd.interoute.route.MethodTypeSpecOrigin
+        dup
+        new com.github.jonathanxd.kores.common.MethodTypeSpec
+        dup
+        getstatic java.lang.Void.TYPE (type: java.lang.Class)
+        ldc "calc2"              // type: java.lang.String
+        new com.github.jonathanxd.kores.base.TypeSpec
+        dup
+        getstatic java.lang.Void.TYPE (type: java.lang.Class)
+        iconst_2
+        anewarray java.lang.Object
+        dup
+        iconst_0
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        dup
+        iconst_1
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        invokestatic com.github.jonathanxd.iutils.collection.Collections3.listOf(java.lang.Object[])java.util.List (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.base.TypeSpec.<init>(java.lang.reflect.Type, java.util.List)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.common.MethodTypeSpec.<init>(java.lang.reflect.Type, java.lang.String, com.github.jonathanxd.kores.base.TypeSpec)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.interoute.route.MethodTypeSpecOrigin.<init>(com.github.jonathanxd.kores.common.MethodTypeSpec)void (ownerIsInterface: false)
+        new com.github.jonathanxd.interoute.backend.def.DefaultBackendDestination
+        dup
+        aload 0
+        invokevirtual com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.getBackendConfiguration()java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration
+        ldc "Math"              // type: java.lang.String
+        invokevirtual com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration.getInstance(java.lang.String)java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        new com.github.jonathanxd.kores.common.MethodTypeSpec
+        dup
+        getstatic java.lang.Void.TYPE (type: java.lang.Class)
+        ldc "plus2"              // type: java.lang.String
+        new com.github.jonathanxd.kores.base.TypeSpec
+        dup
+        getstatic java.lang.Void.TYPE (type: java.lang.Class)
+        iconst_2
+        anewarray java.lang.Object
+        dup
+        iconst_0
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        dup
+        iconst_1
+        getstatic java.lang.Integer.TYPE (type: java.lang.Class)
+        checkcast java.lang.Object
+        aastore
+        invokestatic com.github.jonathanxd.iutils.collection.Collections3.listOf(java.lang.Object[])java.util.List (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.base.TypeSpec.<init>(java.lang.reflect.Type, java.util.List)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.kores.common.MethodTypeSpec.<init>(java.lang.reflect.Type, java.lang.String, com.github.jonathanxd.kores.base.TypeSpec)void (ownerIsInterface: false)
+        invokespecial com.github.jonathanxd.interoute.backend.def.DefaultBackendDestination.<init>(java.lang.Object, com.github.jonathanxd.kores.common.MethodTypeSpec)void (ownerIsInterface: false)
+        aload 0
+        iload 1
+        iload 2
+        invokedynamic get(com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, int, int)java.util.function.Supplier [
+          // Bootstrap method
+          java.lang.invoke.LambdaMetafactory.metafactory(java.lang.invoke.MethodHandles$Lookup, java.lang.String, java.lang.invoke.MethodType, java.lang.invoke.MethodType, java.lang.invoke.MethodHandle, java.lang.invoke.MethodType)java.lang.invoke.CallSite (tag: h_invokestatic, itf: false) [
+            // Arguments
+            ()Ljava/lang/Object;
+            com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.$completableFutureFactory-9223372036854775805(int, int)java.util.concurrent.CompletableFuture (tag: h_invokevirtual, itf: false)
+            ()Ljava/util/concurrent/CompletableFuture;
+          ]
+        ]
+        invokespecial com.github.jonathanxd.interoute.route.SuppliedExecutorRoute.<init>(com.github.jonathanxd.interoute.route.Origin, com.github.jonathanxd.interoute.route.Destination, java.util.function.Supplier)void (ownerIsInterface: false)
+        invokeinterface com.github.jonathanxd.interoute.route.Route.execute()java.util.concurrent.CompletableFuture (ownerIsInterface: true)
+        invokeinterface java.util.concurrent.Future.get()java.lang.Object (ownerIsInterface: true)
+        pop
+        return
+      Label_1:
+      LocalVariables {
+        index: 2, name: param1, start: Label_0, end: Label_1, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_1, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: PACKAGE_PRIVATE, ACC_FINAL, ACC_SYNTHETIC (4112)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    final java.util.concurrent.CompletableFuture $completableFutureFactory-9223372036854775805(int, int) {
+      desc: (II)Ljava/util/concurrent/CompletableFuture; 
+      maxStack: 3, maxLocals: 3 
+      Label_0:
+        aload 0
+        iload 1
+        iload 2
+        invokedynamic get(com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, int, int)java.util.function.Supplier [
+          // Bootstrap method
+          java.lang.invoke.LambdaMetafactory.metafactory(java.lang.invoke.MethodHandles$Lookup, java.lang.String, java.lang.invoke.MethodType, java.lang.invoke.MethodType, java.lang.invoke.MethodHandle, java.lang.invoke.MethodType)java.lang.invoke.CallSite (tag: h_invokestatic, itf: false) [
+            // Arguments
+            ()Ljava/lang/Object;
+            com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.$resultHandler-9223372036854775806(int, int)com.github.jonathanxd.iutils.object.result.Result (tag: h_invokevirtual, itf: false)
+            ()Lcom/github/jonathanxd/iutils/object/result/Result;
+          ]
+        ]
+        invokestatic java.util.concurrent.CompletableFuture.supplyAsync(java.util.function.Supplier)java.util.concurrent.CompletableFuture (ownerIsInterface: false)
+        areturn
+      Label_1:
+      LocalVariables {
+        index: 2, name: param1, start: Label_0, end: Label_1, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_1, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_1, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: PACKAGE_PRIVATE, ACC_FINAL, ACC_SYNTHETIC (4112)
+    !parameter[name: param0, access:  (0)]
+    !parameter[name: param1, access:  (0)]
+    final com.github.jonathanxd.iutils.object.result.Result $resultHandler-9223372036854775806(int, int) {
+      desc: (II)Lcom/github/jonathanxd/iutils/object/result/Result; 
+      maxStack: 3, maxLocals: 4 
+      Label_0:
+        aload 0
+        invokevirtual com.github.jonathanxd.interoute.backend.live.InternalRouter$Router.getBackendConfiguration()java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration
+        ldc "Math"              // type: java.lang.String
+        invokevirtual com.github.jonathanxd.interoute.backend.def.DefaultBackendConfiguration.getInstance(java.lang.String)java.util.Optional (ownerIsInterface: false)
+        invokevirtual java.util.Optional.get()java.lang.Object (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.interoute.test.SimpleInterouteDefaultBackend$MathPlus
+        iload 1
+        iload 2
+        invokevirtual com.github.jonathanxd.interoute.test.SimpleInterouteDefaultBackend$MathPlus.plus2(int, int)void (ownerIsInterface: false)
+        getstatic kotlin.Unit.INSTANCE (type: kotlin.Unit)
+        invokestatic com.github.jonathanxd.iutils.object.result.Result.ok(java.lang.Object)com.github.jonathanxd.iutils.object.result.Result$Ok (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.iutils.object.result.Result
+        areturn
+      Label_1:
+       FRAME[type: F_SAME1, locals: 0, local: {}, stacks: 1, stack: {Reference[java.lang.Throwable]}]
+        astore 3
+        new com.github.jonathanxd.interoute.exception.RoutingException
+        dup
+        aload 3
+        invokespecial com.github.jonathanxd.interoute.exception.RoutingException.<init>(java.lang.Throwable)void (ownerIsInterface: false)
+        invokestatic com.github.jonathanxd.iutils.object.result.Result.error(java.lang.Object)com.github.jonathanxd.iutils.object.result.Result$Err (ownerIsInterface: false)
+        checkcast com.github.jonathanxd.iutils.object.result.Result
+        areturn
+      Label_2:
+      TryCatchBlocks {
+        start: Label_0, end: Label_1, handler: Label_1, exception: java.lang.Throwable
+      }
+      LocalVariables {
+        index: 3, name: exception, start: Label_1, end: Label_2, type: java.lang.Throwable, signature: null
+        index: 2, name: param1, start: Label_0, end: Label_2, type: int, signature: null
+        index: 1, name: param0, start: Label_0, end: Label_2, type: int, signature: null
+        index: 0, name: this, start: Label_0, end: Label_2, type: com.github.jonathanxd.interoute.backend.live.InternalRouter$Router, signature: null
+      }
+    }
+    
+    !access: PACKAGE_PRIVATE, ACC_STATIC (8)
+    static void <clinit>() {
+      desc: ()V 
+      maxStack: 0, maxLocals: 0 
+        return
+    }
+    
+}
