@@ -30,6 +30,10 @@ package com.github.jonathanxd.interoute.backend.def;
 import com.github.jonathanxd.interoute.route.Destination;
 import com.github.jonathanxd.kores.common.MethodTypeSpec;
 
+import org.jetbrains.annotations.Contract;
+
+import java.util.Objects;
+
 /**
  * Default backend implementation of destination.
  */
@@ -66,5 +70,29 @@ public class DefaultBackendDestination implements Destination {
      */
     public MethodTypeSpec getMethodTypeSpec() {
         return this.methodTypeSpec;
+    }
+
+    @Contract(value = "null -> false", pure = true)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DefaultBackendDestination that = (DefaultBackendDestination) o;
+        return Objects.equals(this.getInstance(), that.getInstance()) &&
+                Objects.equals(this.getMethodTypeSpec(), that.getMethodTypeSpec());
+    }
+
+    @Contract(pure = true)
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getInstance(), this.getMethodTypeSpec());
+    }
+
+    @Override
+    public String toString() {
+        return "DefaultBackendDestination{" +
+                "instance=" + this.getInstance() +
+                ", methodTypeSpec=" + this.getMethodTypeSpec() +
+                '}';
     }
 }

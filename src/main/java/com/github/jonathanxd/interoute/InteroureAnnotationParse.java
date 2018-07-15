@@ -73,7 +73,7 @@ public class InteroureAnnotationParse {
             @NotNull Class<?> router) {
         RouterInterface declaredAnnotation = router.getDeclaredAnnotation(RouterInterface.class);
 
-        InterouteBackend<C> backend = (InterouteBackend<C>) Reflection.getInstance(declaredAnnotation.value());
+        InterouteBackend<C> backend = (InterouteBackend<C>) InstanceFactories.create(declaredAnnotation.value());
 
         if (backend.getClass().isAnnotationPresent(RequiresConfiguration.class)
                 && (!router.isAnnotationPresent(BackendConfigurer.class)
@@ -113,7 +113,7 @@ public class InteroureAnnotationParse {
 
         if (backendConfigurer != null) {
             for (Class<? extends InterouteBackendConfigurer<?>> aClass : backendConfigurer.value()) {
-                InterouteBackendConfigurer<C> instance = (InterouteBackendConfigurer<C>) Reflection.getInstance(aClass);
+                InterouteBackendConfigurer<C> instance = (InterouteBackendConfigurer<C>) InstanceFactories.create(aClass);
                 configuration = instance.configure(configuration);
             }
         }

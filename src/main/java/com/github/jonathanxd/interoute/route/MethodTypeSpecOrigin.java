@@ -32,6 +32,8 @@ import com.github.jonathanxd.kores.common.MethodTypeSpec;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 /**
  * Origin implementation which the origin is a {@link MethodTypeSpec}.
  */
@@ -48,11 +50,36 @@ public final class MethodTypeSpecOrigin implements Origin {
 
     /**
      * Gets the origin method.
+     *
      * @return Origin method.
      */
     @Contract(pure = true)
     @NotNull
     public MethodTypeSpec getMethodTypeSpec() {
         return this.methodTypeSpec;
+    }
+
+    @Contract(value = "null -> false", pure = true)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MethodTypeSpecOrigin that = (MethodTypeSpecOrigin) o;
+        return Objects.equals(this.getMethodTypeSpec(), that.getMethodTypeSpec());
+    }
+
+    @Contract(pure = true)
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getMethodTypeSpec());
+    }
+
+    @Contract(pure = true)
+    @NotNull
+    @Override
+    public String toString() {
+        return "MethodTypeSpecOrigin{" +
+                "methodTypeSpec=" + this.getMethodTypeSpec() +
+                '}';
     }
 }
