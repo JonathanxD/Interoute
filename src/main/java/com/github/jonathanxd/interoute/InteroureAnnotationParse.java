@@ -90,7 +90,8 @@ public class InteroureAnnotationParse {
                                     .map(InteroureAnnotationParse::createRouteSpec)
                                     .filter(Optional::isPresent)
                                     .map(Optional::get)
-                                    .collect(Collectors.toList())
+                                    .collect(Collectors.toList()),
+                            InteroureAnnotationParse.createSpecInfoList(router)
                     )
             );
         }

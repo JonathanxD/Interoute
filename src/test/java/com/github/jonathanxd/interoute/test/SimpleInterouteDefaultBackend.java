@@ -93,6 +93,7 @@ public class SimpleInterouteDefaultBackend {
 
     @RouterInterface
     @BackendConfigurer(value = SimpleConfigurer.class)
+    @Get
     public interface InternalRouter {
         @RouteTo("Math.plus")
         @Get
@@ -125,7 +126,7 @@ public class SimpleInterouteDefaultBackend {
     }
 
     @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.METHOD)
+    @Target({ElementType.METHOD, ElementType.TYPE})
     @RouteInfo(AnnotationUnifier.Self.class)
     public @interface Get {
 

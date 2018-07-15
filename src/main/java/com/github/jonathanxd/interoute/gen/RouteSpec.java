@@ -28,7 +28,6 @@
 package com.github.jonathanxd.interoute.gen;
 
 import com.github.jonathanxd.kores.base.MethodDeclaration;
-import com.github.jonathanxd.kores.common.MethodTypeSpec;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -54,6 +53,9 @@ public final class RouteSpec {
     @NotNull
     private final String destination;
 
+    /**
+     * Route spec info list.
+     */
     @NotNull
     private final List<RouteSpecInfo<?>> routeSpecInfoList;
 

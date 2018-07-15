@@ -27,8 +27,6 @@
  */
 package com.github.jonathanxd.interoute.backend;
 
-import com.github.jonathanxd.interoute.backend.InterouteBackend;
-import com.github.jonathanxd.interoute.backend.InterouteBackendConfiguration;
 import com.github.jonathanxd.interoute.exception.GenerationException;
 import com.github.jonathanxd.interoute.gen.ClassGenerationUtil;
 import com.github.jonathanxd.interoute.gen.GenerationUtil;
@@ -40,7 +38,6 @@ import com.github.jonathanxd.kores.Instruction;
 import com.github.jonathanxd.kores.Instructions;
 import com.github.jonathanxd.kores.base.ClassDeclaration;
 import com.github.jonathanxd.kores.base.MethodDeclaration;
-import com.github.jonathanxd.kores.common.VariableRef;
 import com.github.jonathanxd.kores.factory.Factories;
 import com.github.jonathanxd.kores.type.ImplicitKoresType;
 

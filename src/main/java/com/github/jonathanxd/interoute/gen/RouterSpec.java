@@ -68,14 +68,22 @@ public final class RouterSpec<C extends InterouteBackendConfiguration> {
     @NotNull
     private final List<RouteSpec> routeSpecList;
 
+    /**
+     * Route spec info list.
+     */
+    @NotNull
+    private final List<RouteSpecInfo<?>> routeSpecInfoList;
+
     public RouterSpec(@NotNull Type routerInterface,
                       @NotNull InterouteBackend<C> backend,
                       @NotNull C configuration,
-                      @NotNull List<RouteSpec> routeSpecList) {
+                      @NotNull List<RouteSpec> routeSpecList,
+                      @NotNull List<RouteSpecInfo<?>> routeSpecInfoList) {
         this.routerInterface = routerInterface;
         this.backend = backend;
         this.configuration = configuration;
         this.routeSpecList = routeSpecList;
+        this.routeSpecInfoList = routeSpecInfoList;
     }
 
     /**
@@ -122,6 +130,17 @@ public final class RouterSpec<C extends InterouteBackendConfiguration> {
         return this.routeSpecList;
     }
 
+    /**
+     * Gets the route spec info list.
+     *
+     * @return Route spec info list.
+     */
+    @Contract(pure = true)
+    @NotNull
+    public List<RouteSpecInfo<?>> getRouteSpecInfoList() {
+        return this.routeSpecInfoList;
+    }
+
     @Contract(value = "null -> false", pure = true)
     @Override
     public boolean equals(Object o) {
@@ -130,13 +149,16 @@ public final class RouterSpec<C extends InterouteBackendConfiguration> {
         RouterSpec that = (RouterSpec) o;
         return Objects.equals(this.getRouterInterface(), that.getRouterInterface()) &&
                 Objects.equals(this.getBackend(), that.getBackend()) &&
-                Objects.equals(this.getRouteSpecList(), that.getRouteSpecList());
+                Objects.equals(this.getConfiguration(), that.getConfiguration()) &&
+                Objects.equals(this.getRouteSpecList(), that.getRouteSpecList()) &&
+                Objects.equals(this.getRouteSpecInfoList(), that.getRouteSpecInfoList());
     }
 
     @Contract(pure = true)
     @Override
     public int hashCode() {
-        return Objects.hash(this.getRouterInterface(), this.getBackend(), this.getRouteSpecList());
+        return Objects.hash(this.getRouterInterface(), this.getBackend(), this.getConfiguration(), this.getRouteSpecList(),
+                this.getRouteSpecInfoList());
     }
 
     @Contract(pure = true)
@@ -144,9 +166,11 @@ public final class RouterSpec<C extends InterouteBackendConfiguration> {
     @Override
     public String toString() {
         return "RouterSpec{" +
-                "routerInterface=" + this.getRouterInterface() +
-                ", backend=" + this.getBackend() +
-                ", routeSpecList=" + this.getRouteSpecList() +
+                "routerInterface=" + routerInterface +
+                ", backend=" + backend +
+                ", configuration=" + configuration +
+                ", routeSpecList=" + routeSpecList +
+                ", routeSpecInfoList=" + routeSpecInfoList +
                 '}';
     }
 }
