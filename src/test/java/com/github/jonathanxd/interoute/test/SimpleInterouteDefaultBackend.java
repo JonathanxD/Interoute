@@ -131,12 +131,13 @@ public class SimpleInterouteDefaultBackend {
 
     }
 
-    public class GetUnifier implements AnnotationUnifier {
+    public class GetUnifier implements AnnotationUnifier<Annotation> {
 
         @SuppressWarnings("unchecked")
         @Override
-        public <T> T unify(Annotation annotation) {
-            return (T) annotation;
+        @NotNull
+        public Annotation unify(@NotNull Annotation annotation) {
+            return annotation;
         }
     }
 

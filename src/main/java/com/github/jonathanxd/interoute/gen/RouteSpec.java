@@ -27,6 +27,7 @@
  */
 package com.github.jonathanxd.interoute.gen;
 
+import com.github.jonathanxd.kores.base.MethodDeclaration;
 import com.github.jonathanxd.kores.common.MethodTypeSpec;
 
 import org.jetbrains.annotations.Contract;
@@ -45,7 +46,7 @@ public final class RouteSpec {
      * Origin method.
      */
     @NotNull
-    private final MethodTypeSpec origin;
+    private final MethodDeclaration origin;
 
     /**
      * Destination notation.
@@ -56,7 +57,7 @@ public final class RouteSpec {
     @NotNull
     private final List<RouteSpecInfo<?>> routeSpecInfoList;
 
-    public RouteSpec(@NotNull MethodTypeSpec origin,
+    public RouteSpec(@NotNull MethodDeclaration origin,
                      @NotNull String destination,
                      @NotNull List<RouteSpecInfo<?>> routeSpecInfoList) {
         this.origin = origin;
@@ -71,7 +72,7 @@ public final class RouteSpec {
      */
     @Contract(pure = true)
     @NotNull
-    public MethodTypeSpec getOrigin() {
+    public MethodDeclaration getOrigin() {
         return this.origin;
     }
 

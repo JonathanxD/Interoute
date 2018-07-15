@@ -134,7 +134,7 @@ public class InteroureAnnotationParse {
             return Optional.empty();
         } else {
             return Optional.of(new RouteSpec(
-                    ConversionsKt.getMethodTypeSpec(method),
+                    ConversionsKt.toMethodDeclaration(method),
                     routeTo.value(),
                     InteroureAnnotationParse.createSpecInfoList(method)));
         }

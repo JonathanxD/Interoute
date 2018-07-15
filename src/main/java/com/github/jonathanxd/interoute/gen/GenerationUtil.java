@@ -112,7 +112,7 @@ public final class GenerationUtil {
      * @return Name of {@code routeSpec} origin method.
      */
     public static String getRouteOriginName(RouteSpec routeSpec) {
-        return routeSpec.getOrigin().getMethodName();
+        return routeSpec.getOrigin().getName();
     }
 
     /**
@@ -122,7 +122,7 @@ public final class GenerationUtil {
      * @return Return type of {@code routeSpec} origin method.
      */
     public static Type getRouteOriginReturnType(RouteSpec routeSpec) {
-        return routeSpec.getOrigin().getTypeSpec().getReturnType();
+        return routeSpec.getOrigin().getReturnType();
     }
 
     /**
@@ -132,8 +132,7 @@ public final class GenerationUtil {
      * @return Parameters of {@code routeSpec} origin method.
      */
     public static List<KoresParameter> getRouteOriginParameters(RouteSpec routeSpec) {
-        return CollectionsKt.mapIndexed(routeSpec.getOrigin().getTypeSpec().getParameterTypes(),
-                (index, type) -> Factories.finalParameter(type, "param" + index));
+        return routeSpec.getOrigin().getParameters();
     }
 
     /**
@@ -423,6 +422,24 @@ public final class GenerationUtil {
                 Collections3.listOf(Literals.TYPE(typeSpec.getType()),
                         Commons.invokeListOf(
                                 typeSpec.getParameterTypes().stream().map(Literals::TYPE).collect(Collectors.toList())))
+        );
+    }
+
+    /**
+     * Creates instruction that constructs {@link MethodTypeSpec} from {@code methodDeclaration}.
+     *
+     * @param methodDeclaration Method specification.
+     * @return Instruction that constructs {@link MethodTypeSpec} from {@code methodDeclaration}.
+     */
+    public static Instruction createMethodTypeSpec(MethodDeclaration methodDeclaration) {
+        return InvocationFactory.invokeConstructor(
+                MethodTypeSpec.class,
+                Factories.constructorTypeSpec(Type.class, String.class, TypeSpec.class),
+                Collections3.listOf(
+                        Literals.TYPE(methodDeclaration.getType()),
+                        Literals.STRING(methodDeclaration.getName()),
+                        createTypeSpec(methodDeclaration.getTypeSpec())
+                )
         );
     }
 
