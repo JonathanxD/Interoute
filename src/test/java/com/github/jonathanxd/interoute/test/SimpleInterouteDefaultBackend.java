@@ -97,7 +97,7 @@ public class SimpleInterouteDefaultBackend {
     public interface InternalRouter {
         @RouteTo("Math.plus")
         @Get
-        Route<Integer> calc(int a, int b);
+        Route<Integer> calc(@Body int a, int b);
 
         @RouteTo("Math.plus2")
         void calc2(int a, int b);
@@ -129,6 +129,13 @@ public class SimpleInterouteDefaultBackend {
     @Target({ElementType.METHOD, ElementType.TYPE})
     @RouteInfo(AnnotationUnifier.Self.class)
     public @interface Get {
+
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target({ElementType.PARAMETER})
+    @RouteInfo(AnnotationUnifier.Self.class)
+    public @interface Body {
 
     }
 

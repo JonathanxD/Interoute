@@ -48,6 +48,12 @@ public final class RouteSpec {
     private final MethodDeclaration origin;
 
     /**
+     * Origin parameters specification
+     */
+    @NotNull
+    private final List<RouteParameterSpec> originParameterSpecs;
+
+    /**
      * Destination notation.
      */
     @NotNull
@@ -60,9 +66,11 @@ public final class RouteSpec {
     private final List<RouteSpecInfo<?>> routeSpecInfoList;
 
     public RouteSpec(@NotNull MethodDeclaration origin,
+                     @NotNull List<RouteParameterSpec> originParameterSpecs,
                      @NotNull String destination,
                      @NotNull List<RouteSpecInfo<?>> routeSpecInfoList) {
         this.origin = origin;
+        this.originParameterSpecs = originParameterSpecs;
         this.destination = destination;
         this.routeSpecInfoList = Collections.unmodifiableList(new ArrayList<>(routeSpecInfoList));
     }
@@ -76,6 +84,17 @@ public final class RouteSpec {
     @NotNull
     public MethodDeclaration getOrigin() {
         return this.origin;
+    }
+
+    /**
+     * Gets the origin method parameters specs.
+     *
+     * @return Origin method parameters specs.
+     */
+    @Contract(pure = true)
+    @NotNull
+    public List<RouteParameterSpec> getOriginParameterSpecs() {
+        return this.originParameterSpecs;
     }
 
     /**
@@ -106,14 +125,16 @@ public final class RouteSpec {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RouteSpec routeSpec = (RouteSpec) o;
-        return Objects.equals(getOrigin(), routeSpec.getOrigin()) &&
-                Objects.equals(getDestination(), routeSpec.getDestination());
+        return Objects.equals(this.getOrigin(), routeSpec.getOrigin()) &&
+                Objects.equals(this.getOriginParameterSpecs(), routeSpec.getOriginParameterSpecs()) &&
+                Objects.equals(this.getDestination(), routeSpec.getDestination()) &&
+                Objects.equals(this.getRouteSpecInfoList(), routeSpec.getRouteSpecInfoList());
     }
 
     @Contract(pure = true)
     @Override
     public int hashCode() {
-        return Objects.hash(getOrigin(), getDestination());
+        return Objects.hash(this.getOrigin(), this.getOriginParameterSpecs(), this.getDestination(), this.getRouteSpecInfoList());
     }
 
     @Contract(pure = true)
@@ -121,8 +142,10 @@ public final class RouteSpec {
     @Override
     public String toString() {
         return "RouteSpec{" +
-                "origin=" + this.getOrigin() +
-                ", destination='" + this.getDestination() + '\'' +
+                "origin=" + origin +
+                ", destination='" + destination + '\'' +
+                ", routeSpecInfoList=" + routeSpecInfoList +
+                ", originParameterSpecs=" + originParameterSpecs +
                 '}';
     }
 }

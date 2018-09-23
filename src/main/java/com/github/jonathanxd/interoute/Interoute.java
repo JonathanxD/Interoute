@@ -44,8 +44,8 @@ public final class Interoute {
      */
     public static <I> Result<? extends I, RouterCreationException> createRouter(Class<I> router) {
         return Result.<Class<I>, RouterCreationException>ok(router)
-                .flatMap(InteroureAnnotationParse::validate)
-                .flatMap(InteroureAnnotationParse::getRouterSpec)
+                .flatMap(InterouteAnnotationParse::validate)
+                .flatMap(InterouteAnnotationParse::getRouterSpec)
                 .flatMap(r -> r.getBackend().<I>generate(r).mapError(RouterCreationException::new));
     }
 
