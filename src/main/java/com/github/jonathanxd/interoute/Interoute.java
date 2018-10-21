@@ -43,10 +43,22 @@ public final class Interoute {
      * @return Result with either router instance or {@link RouterCreationException}.
      */
     public static <I> Result<? extends I, RouterCreationException> createRouter(Class<I> router) {
+        return Interoute.createRouter(router, null);
+    }
+
+    /**
+     * Creates a {@link com.github.jonathanxd.interoute.route.Router} from {@code router} interface.
+     *
+     * @param router Router interface.
+     * @param loader Class loader to load routing class.
+     * @param <I>    Router type.
+     * @return Result with either router instance or {@link RouterCreationException}.
+     */
+    public static <I> Result<? extends I, RouterCreationException> createRouter(Class<I> router, ClassLoader loader) {
         return Result.<Class<I>, RouterCreationException>ok(router)
                 .flatMap(InterouteAnnotationParse::validate)
                 .flatMap(InterouteAnnotationParse::getRouterSpec)
-                .flatMap(r -> r.getBackend().<I>generate(r).mapError(RouterCreationException::new));
+                .flatMap(r -> r.getBackend().<I>generate(r, loader).mapError(RouterCreationException::new));
     }
 
 }

@@ -42,6 +42,7 @@ import com.github.jonathanxd.kores.factory.Factories;
 import com.github.jonathanxd.kores.type.ImplicitKoresType;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,7 +51,7 @@ public abstract class AbstractInterouteBackend<C extends InterouteBackendConfigu
 
     @NotNull
     @Override
-    public <T> Result<? extends T, GenerationException> generate(@NotNull RouterSpec<C> routerSpec) {
+    public <T> Result<? extends T, GenerationException> generate(@NotNull RouterSpec<C> routerSpec, @Nullable ClassLoader loader) {
         C configuration = routerSpec.getConfiguration();
         ClassDeclaration.Builder classDeclaration = GenerationUtil.generateStandardRouterClass(routerSpec.getRouterInterface())
                 .specifiedName("com.github.jonathanxd.interoute.backend.live."
@@ -69,7 +70,7 @@ public abstract class AbstractInterouteBackend<C extends InterouteBackendConfigu
             classDeclaration = classDeclaration.methods(Collections3.concat(classDeclaration.getMethods(), methods));
 
             Class<? extends T> generatedClass = ClassGenerationUtil
-                    .load(ClassGenerationUtil.generate(classDeclaration.build()), null);
+                    .load(ClassGenerationUtil.generate(classDeclaration.build()), loader);
 
             return ClassGenerationUtil.create(generatedClass, this, configuration)
                     .mapError(GenerationException::new);

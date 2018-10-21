@@ -32,6 +32,7 @@ import com.github.jonathanxd.interoute.gen.RouterSpec;
 import com.github.jonathanxd.iutils.object.result.Result;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Interoute backend.
@@ -46,11 +47,12 @@ public interface InterouteBackend<C extends InterouteBackendConfiguration> {
      * Generate the router implementation.
      *
      * @param routerSpec Specification of the router.
+     * @param classLoader Class loader to load routing class.
      * @param <T>        Type of the router.
      * @return Router implementation instance.
      */
     @NotNull
-    <T> Result<? extends T, GenerationException> generate(@NotNull RouterSpec<C> routerSpec);
+    <T> Result<? extends T, GenerationException> generate(@NotNull RouterSpec<C> routerSpec, @Nullable ClassLoader classLoader);
 
     /**
      * Creates backend configuration instance.
